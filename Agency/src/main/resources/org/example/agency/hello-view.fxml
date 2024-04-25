@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="400.0" maxWidth="590.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: rgb(51, 50, 46)" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.agency.HelloController">
+   <children>
+      <TabPane fx:id="mainTabPane" prefHeight="400.0" prefWidth="600.0" style="-fx-tab-max-height: -10; -fx-tab-min-height: -10" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab fx:id="loginTab" text="Login">
+                <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="50.0" style="-fx-padding: 90 10 10 10" >
+                    <children>
+                        <Label text="Please log in using the given credentials." style="-fx-text-fill: white; -fx-padding: 0 0 10 0"/>
+                        <VBox style="-fx-padding: 0 10 0 10">
+                            <Label text="Username" style="-fx-background-radius: 30 30 0 0; -fx-padding: 5 15 5 15; -fx-background-color: black; -fx-text-fill: white"/>
+                        </VBox>
+                        <TextField fx:id="loginUsername" promptText="Enter your username." style="-fx-background-radius: 50;"/>
+                        <VBox style="-fx-padding: 10 10 0 10">
+                            <Label text="Password" style="-fx-background-radius: 30 30 0 0; -fx-padding: 5 15 5 15; -fx-background-color: black; -fx-text-fill: white"/>
+                        </VBox>
+                        <TextField fx:id="loginPassword" promptText="Enter your password." style="-fx-background-radius: 50;"/>
+                        <VBox style="-fx-padding: 10 10 0 10">
+                            <Button fx:id="loginAccount" text="Log in" onAction="#loginAccount" prefWidth="560.0" style="-fx-background-radius: 50; -fx-background-color: black; -fx-text-fill: white"/>
+                        </VBox>
+                    </children>
+                </VBox>
+            </Tab>
+          <Tab fx:id="productsTab" text="Products Overview">
+            <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="50.0" style="-fx-padding: 10 10 10 10">
+                  <children>
+                      <Label text="List of the available products." style="-fx-text-fill: white; -fx-padding: 0 0 10 0"/>
+                     <HBox prefHeight="20.0" prefWidth="600.0" style="-fx-padding: 0 0 0 10" spacing="10">
+                        <children>
+                           <Label text="ID" style="-fx-background-radius: 30 30 0 0; -fx-padding: 5 10 5 10; -fx-background-color: black; -fx-text-fill: white"/>
+                           <Label text="NAME" style="-fx-background-radius: 30 30 0 0; -fx-padding: 5 15 5 15; -fx-background-color: black; -fx-text-fill: white"/>
+                           <Label text="PRICE" style="-fx-background-radius: 30 30 0 0; -fx-padding: 5 15 5 15; -fx-background-color: black; -fx-text-fill: white"/>
+                           <Label text="QUANTITY" style="-fx-background-radius: 30 30 0 0; -fx-padding: 5 15 5 15; -fx-background-color: black; -fx-text-fill: white"/>
+                        </children>
+                     </HBox>
+                     <ListView fx:id="productsListMessage" prefHeight="210.0" prefWidth="580.0" style="-fx-background-radius: 15; -fx-end-margin: 10"/>
+                      <Label text="Manage the products." style="-fx-text-fill: white; -fx-padding: 10 0 0 0"/>
+                      <HBox prefHeight="10.0" prefWidth="600.0" style="-fx-padding: 10 0 10 0;" spacing="10">
+                          <children>
+                              <TextField fx:id="productId" promptText="Id" style="-fx-background-radius: 50"/>
+                              <TextField fx:id="productName" promptText="Name" style="-fx-background-radius: 50"/>
+                              <TextField fx:id="productPrice" promptText="Price" style="-fx-background-radius: 50"/>
+                              <TextField fx:id="productQuantity" promptText="Quantity" style="-fx-background-radius: 50"/>
+                          </children>
+                      </HBox>
+                      <HBox prefHeight="20.0" prefWidth="600.0" style="-fx-padding: 0 0 10 0;" spacing="10">
+                          <children>
+                              <Button fx:id="addProduct" text="Add Product" onAction="#addProduct" style="-fx-background-radius: 50; -fx-background-color: black; -fx-text-fill: white"/>
+                              <Button fx:id="updateProduct" text="Update Product" onAction="#updateProduct" style="-fx-background-radius: 50; -fx-background-color: black; -fx-text-fill: white"/>
+                              <Button fx:id="removeProduct" text="Delete Product" onAction="#removeProduct" style="-fx-background-radius: 50; -fx-background-color: black; -fx-text-fill: white"/>
+                              <Button fx:id="showProducts" text="Show/Refresh" onAction="#getAllProducts" style="-fx-background-radius: 50; -fx-background-color: black; -fx-text-fill: white"/>
+                          </children>
+                      </HBox>
+                      <Label text="Enter the desired details and press the button to process the change." style="-fx-text-fill: white; -fx-padding: 0 0 10 0"/>
+                      <TextArea fx:id="productsStatusInformation" prefHeight="10.0" prefWidth="600.0" style="-fx-background-radius: 15"/>
+                      <Label text="Change the viewing method." style="-fx-text-fill: white; -fx-padding: 10 0 0 0"/>
+                      <HBox prefHeight="10.0" prefWidth="600.0" style="-fx-padding: 10 0 10 0;" spacing="10">
+                          <children>
+                              <Button fx:id="productsOverviewP" text="Products Overview" onAction="#showProductsOverview" style="-fx-background-radius: 50; -fx-background-color: white; -fx-text-fill: black"/>
+                              <Button fx:id="usersOverviewP" text="Users Overview" onAction="#showUsersOverview" style="-fx-background-radius: 50; -fx-background-color: black; -fx-text-fill: white"/>
+                          </children>
+                      </HBox>
+                  </children>
+            </VBox>
+          </Tab>
+          <Tab fx:id="usersTab" text="Users Overview">
+            <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="50.0" style="-fx-padding: 10 10 10 10">
+                <children>
+                    <Label text="List of the available users." style="-fx-text-fill: white; -fx-padding: 0 0 10 0"/>
+                    <HBox prefHeight="20.0" prefWidth="600.0" style="-fx-padding: 0 0 0 10" spacing="10">
+                        <children>
+                            <Label text="ID" style="-fx-background-radius: 30 30 0 0; -fx-padding: 5 10 5 10; -fx-background-color: black; -fx-text-fill: white"/>
+                            <Label text="USERNAME" style="-fx-background-radius: 30 30 0 0; -fx-padding: 5 15 5 15; -fx-background-color: black; -fx-text-fill: white"/>
+                            <Label text="PASSWORD" style="-fx-background-radius: 30 30 0 0; -fx-padding: 5 15 5 15; -fx-background-color: black; -fx-text-fill: white"/>
+                            <Label text="ADMINISTRATOR" style="-fx-background-radius: 30 30 0 0; -fx-padding: 5 15 5 15; -fx-background-color: black; -fx-text-fill: white"/>
+                        </children>
+                    </HBox>
+                    <ListView fx:id="usersListMessage" prefHeight="210.0" prefWidth="580.0" style="-fx-background-radius: 15; -fx-end-margin: 10"/>
+                    <Label text="Manage the users." style="-fx-text-fill: white; -fx-padding: 10 0 0 0"/>
+                    <HBox prefHeight="10.0" prefWidth="600.0" style="-fx-padding: 10 0 10 0;" spacing="10">
+                        <children>
+                            <TextField fx:id="userId" promptText="Id" style="-fx-background-radius: 50"/>
+                            <TextField fx:id="userUsername" promptText="Username" style="-fx-background-radius: 50"/>
+                            <TextField fx:id="userPassword" promptText="Password" style="-fx-background-radius: 50"/>
+                            <TextField fx:id="userAdministrator" promptText="Administrator" style="-fx-background-radius: 50"/>
+                        </children>
+                    </HBox>
+                    <HBox prefHeight="20.0" prefWidth="600.0" style="-fx-padding: 0 0 10 0;" spacing="10">
+                        <children>
+                            <Button fx:id="addUser" text="Add User" onAction="#addUser" style="-fx-background-radius: 50; -fx-background-color: black; -fx-text-fill: white"/>
+                            <Button fx:id="updateUser" text="Update User" onAction="#updateUser" style="-fx-background-radius: 50; -fx-background-color: black; -fx-text-fill: white"/>
+                            <Button fx:id="removeUser" text="Delete User" onAction="#removeUser" style="-fx-background-radius: 50; -fx-background-color: black; -fx-text-fill: white"/>
+                            <Button fx:id="showUsers" text="Show/Refresh" onAction="#getAllUsers" style="-fx-background-radius: 50; -fx-background-color: black; -fx-text-fill: white"/>
+                        </children>
+                    </HBox>
+                    <Label text="Enter the desired details and press the button to process the change." style="-fx-text-fill: white; -fx-padding: 0 0 10 0"/>
+                    <TextArea fx:id="usersStatusInformation" prefHeight="10.0" prefWidth="600.0" style="-fx-background-radius: 15"/>
+                    <Label text="Change the viewing method." style="-fx-text-fill: white; -fx-padding: 10 0 0 0"/>
+                    <HBox prefHeight="10.0" prefWidth="600.0" style="-fx-padding: 10 0 10 0;" spacing="10">
+                        <children>
+                            <Button fx:id="productsOverviewU" text="Products Overview" onAction="#showProductsOverview" style="-fx-background-radius: 50; -fx-background-color: black; -fx-text-fill: white"/>
+                            <Button fx:id="usersOverviewU" text="Users Overview" onAction="#showUsersOverview" style="-fx-background-radius: 50; -fx-background-color: white; -fx-text-fill: black"/>
+                        </children>
+                    </HBox>
+                </children>
+            </VBox>
+          </Tab>
+            <Tab fx:id="basicTab" text="Agency Stock">
+                <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="50.0" style="-fx-padding: 10 10 10 10">
+                    <children>
+                        <Label text="List of the available stock." style="-fx-text-fill: white; -fx-padding: 0 0 10 0"/>
+                        <HBox prefHeight="20.0" prefWidth="600.0" style="-fx-padding: 0 0 0 10" spacing="10">
+                            <children>
+                                <Label text="ID" style="-fx-background-radius: 30 30 0 0; -fx-padding: 5 10 5 10; -fx-background-color: black; -fx-text-fill: white"/>
+                                <Label text="NAME" style="-fx-background-radius: 30 30 0 0; -fx-padding: 5 15 5 15; -fx-background-color: black; -fx-text-fill: white"/>
+                                <Label text="PRICE" style="-fx-background-radius: 30 30 0 0; -fx-padding: 5 15 5 15; -fx-background-color: black; -fx-text-fill: white"/>
+                                <Label text="QUANTITY" style="-fx-background-radius: 30 30 0 0; -fx-padding: 5 15 5 15; -fx-background-color: black; -fx-text-fill: white"/>
+                            </children>
+                        </HBox>
+                        <ListView fx:id="stockListMessage" prefHeight="290.0" prefWidth="580.0" style="-fx-background-radius: 15; -fx-end-margin: 10"/>
+                        <HBox prefHeight="10.0" prefWidth="600.0" style="-fx-padding: 10 0 10 0;" spacing="10">
+                            <children>
+                                <TextField fx:id="stockId" promptText="Id" style="-fx-background-radius: 50"/>
+                                <TextField fx:id="stockQuantity" promptText="Quantity" style="-fx-background-radius: 50"/>
+                                <Button fx:id="orderProduct" text="Order" onAction="#orderProduct" style="-fx-background-radius: 50; -fx-background-color: black; -fx-text-fill: white"/>
+                                <Button fx:id="showStock" text="Show/Refresh" onAction="#getAllStock" style="-fx-background-radius: 50; -fx-background-color: black; -fx-text-fill: white"/>
+                            </children>
+                        </HBox>
+                        <TextArea fx:id="stockStatusInformation" prefHeight="10.0" prefWidth="600.0" style="-fx-background-radius: 15"/>
+                    </children>
+                </VBox>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
